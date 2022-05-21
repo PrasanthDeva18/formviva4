@@ -1,0 +1,149 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <title>FORM VALIDATION</title>
+    </head>
+    <body style="background-color:beige;">
+        <div class="container mt-5 justify-content-center">
+            <h2 class="text-danger text-center">Form</h2>
+           <div >
+                  <center> <form name="myform" action="https://prasanthdeva18.github.io/formcsuccess/">
+                                <label for="name">NAME:</label> <br><input type="text" id="n" name="n111" required > <span id="e1" style="color: red;"></span><br>
+
+                                <label for="name">ROLL NO:</label> <br>
+                                <input type="text" id="n1" name="n2" required > <span id="b1" style="color: red;"></span><br>
+
+                                <label for="name">MOBILE NO:</label><span id="b22" style="color: red;"></span> <br>
+                                <input type="text" id="n11" name="n3" required > <span id="b2" style="color: red;"></span><br>
+                           
+                               
+
+                               
+                                courses <span id="qwer" style="color:red;"></span>
+                                <br>
+
+                                <input type="checkbox" name="c11" id="c" > C <br>
+                                <input type="checkbox" name="c12" id="c1"> C++ <br>
+                                <input type="checkbox" name="c13" id="c2"> JAVA <br>
+                                <input type="checkbox" name="c14" id="c3"> PYTHON <br>
+                                <input type="checkbox" name="c15" id="c4"> GIT HUB <br>
+                                
+                                Year of study <span id="ww" style="color:red"></span> <br>
+                                <input type="radio" id="1" name="fav_language" value="1" required>
+                                 <label for="1">I</label><br>
+                                <input type="radio" id="2" name="fav_language" value="2" required>
+                                <label for="2">II</label><br>
+                                <input type="radio" id="3" name="fav_language" value="3" required>
+                                <label for="3">III</label> <br>
+                                <input type="radio" id="4" name="fav_language" value="4" required>
+                                <label for="4">IV</label> <br>
+
+
+                                    <label for="cars">Choose your department:</label>
+                                    <select name="dept" id="dpt">
+                                        <option value="">please select from below</option>
+                                      <option value="IT">IT</option>
+                                      <option value="CSE">CSE</option>
+                                      <option value="Mech">MECH</option>                                    
+                                      <option value="ft">FT</option>
+                                    </select><span id="rrr" style="color:red"></span><br>
+                                    E-mail: <br>
+                                    <input type="email" id="n23" name="tt" required > <span id="vv" style="color: red;"></span><br>
+                                    <br><br>
+                                    
+  <input type="submit" value="Submit" onclick="val()">
+  
+                                </form></center>
+                    
+                
+        </div>
+        <script>
+           function val() {
+            let x = document.forms["myform"]["n111"].value;
+           if (x == "") {
+          // alert("Name must be filled out");
+          document.getElementById('e1').innerHTML="*Name must be filled out";
+           return false;
+           }
+           let y = document.forms["myform"]["n2"].value;
+           if (y == "") {
+          // alert("Name must be filled out");
+           document.getElementById('b1').innerHTML="*Roll must be filled out";
+           return false;
+           }
+           let z = document.forms["myform"]["n3"].value;
+           if (z == "") {
+          // alert("Name must be filled out");
+           document.getElementById('b2').innerHTML="*Mobile No must be filled out";
+           return false;
+           
+           }
+           if (z.length < 10 && z.length > 0) {
+          // alert("Name must be filled out");
+           document.getElementById('b22').innerHTML="*Mobile number must have 10 digits";
+           return false;
+           }
+           var val=false;
+           if(document.getElementById('c').checked){
+               valid = true;
+           }
+           else if(document.getElementById('c1').checked){
+               valid = true;
+           }
+           else if(document.getElementById('c2').checked){
+               valid = true;
+           }
+           else if(document.getElementById('c3').checked){
+               valid = true;
+           }
+           else if(document.getElementById('c4').checked){
+               valid = true;
+           }
+           else{
+               document.getElementById('qwer').innerHTML="*Please select an option";
+           }
+           /*var state=document.getElementById("dpt");
+            if(state.value=="")
+            {
+                document.getElementById('ww').innerHTML="*Please select the year";
+                //alert("Select department");
+                return false;
+            }*/
+            var op=document.myform.fav_language;
+            var sts=0;
+            for(var i=0;i<op.length;i++)
+            {
+                if(op[i].checked==true)
+                {
+                    sts=1;
+                    break;
+                }
+            }
+            if(sts==0)
+            {
+                //alert("Select Gender")
+                document.getElementById('ww').innerHTML="*Please select the year";
+                return false;
+            }
+            var state=document.getElementById("dpt").value;
+            if(state=="")
+            {
+                //alert("Select State");
+                document.getElementById('rrr').innerHTML="*Please select the department";
+                return false;
+            }
+           let w = document.forms["myform"]["tt"].value;
+           if (w == "") {
+          // alert("Name must be filled out");
+           document.getElementById('vv').innerHTML="*Email must be filled out";
+           return false;
+           }          
+        }
+          
+        </script>
+    </body>
+</html>
